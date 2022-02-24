@@ -88,7 +88,8 @@ void inputFileReading(vector<Contribuitor> &contribuitors, vector<Project> &proj
             projects[i].name = parts[0];
             projects[i].duration = stoi(parts[1]);
             projects[i].score = stoi(parts[2]);
-            projects[i].Roles.resize(stoi(parts[3]));
+            projects[i].bestBefore = stoi(parts[3]);
+            projects[i].Roles.resize(stoi(parts[4]));
             parts.clear();
             for (int j = 0; j < projects[i].Roles.size(); ++j) { //read the roles in each project
                 getline (readFile, line);
