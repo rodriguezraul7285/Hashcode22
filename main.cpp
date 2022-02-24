@@ -16,18 +16,7 @@ struct Project{
     int bestBefore;
     vector<Skill> Roles;
 };
-/*
-int main () {
-    ofstream writeFile ("a_an_example.in.txt");
-    if (writeFile.is_open())
-    {
-        writeFile << "This is a line.\n";
-        writeFile << "This is another line.\n";
-        writeFile.close();
-    }
-    else cout << "Unable to open file";
-    return 0;
-}*/
+
 void split(const string& str, const string& delim, vector<string>& parts) { // credits: @Todd Gamblin (stackoverflow.com)
     size_t start, end = 0;
     while (end < str.size()) {
@@ -123,6 +112,14 @@ int main () {
     vector<Contribuitor> contribuitors;
     vector<Project> projects;
     inputFileReading(contribuitors, projects);
-
+    map<string ,vector<string>> res;
+    vector<string> contriS;
+    for (int i = 0; i < contribuitors.size(); ++i) {
+        contriS.push_back(contribuitors[i].name);
+    }
+    for (int i = 0; i < projects.size(); ++i) {
+        res.insert(pair<string,vector<string>>(projects[i].name, contriS));
+    }
+    printResults(res);
     return 0;
 }
