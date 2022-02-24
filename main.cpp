@@ -104,21 +104,34 @@ void inputFileReading(vector<Contribuitor> &contribuitors, vector<Project> &proj
     else cout << "Unable to open file";
 
 }
-
+void createMaps(vector<Contribuitor> &contribuitorsVector,  vector<Project> &projectsVector, map<string, Contribuitor> &contribuitorsMap, map<string, Project> &projectsMap){
+    for (Contribuitor contValue: contribuitorsVector){
+        contribuitorsMap[contValue.name]=contValue;
+    }
+    for (Project projectValue: projectsVector){
+        projectsMap[projectValue.name] = projectValue;
+    }
+}
 
 
 int main () {
-    int C=0,P=0;//contributors and proyects.
-    vector<Contribuitor> contribuitors;
-    vector<Project> projects;
-    inputFileReading(contribuitors, projects);
+
+    vector<Contribuitor> contribuitorsVector;
+    vector<Project> projectsVector;
+    inputFileReading(contribuitorsVector, projectsVector);
+    map<string, Contribuitor> contribuitorsMap;
+    map<string, Project> projectsMap;
+    createMaps(contribuitorsVector, projectsVector,contribuitorsMap,projectsMap);
+
+
+
     map<string ,vector<string>> res;
     vector<string> contriS;
-    for (int i = 0; i < contribuitors.size(); ++i) {
-        contriS.push_back(contribuitors[i].name);
+    for (int i = 0; i < contribuitorsVector.size(); ++i) {
+        contriS.push_back(contribuitorsVector[i].name);
     }
-    for (int i = 0; i < projects.size(); ++i) {
-        res.insert(pair<string,vector<string>>(projects[i].name, contriS));
+    for (int i = 0; i < projectsVector.size(); ++i) {
+        res.insert(pair<string,vector<string>>(projectsVector[i].name, contriS));
     }
     printResults(res);
     return 0;
