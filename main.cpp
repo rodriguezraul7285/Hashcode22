@@ -122,7 +122,7 @@ int main () {
     int C=0,P=0;//contributors and proyects.
     vector<Contribuitor> contribuitors;
     vector<Project> projects;
-
+    inputFileReading(contribuitors, projects);
 
     return 0;
 }
