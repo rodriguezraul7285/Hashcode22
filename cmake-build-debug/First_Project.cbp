@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="B:/Programation_Projects/Cpp_Projects/First_Project/Complex.h">
-			<Option target="First_Project"/>
-		</Unit>
 		<Unit filename="B:/Programation_Projects/Cpp_Projects/First_Project/main.cpp">
 			<Option target="First_Project"/>
 		</Unit>
